@@ -1,27 +1,59 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
 <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
-<title>CodePen - A Pen by  tyler</title>
+<title>CodePen - 1902-5</title>
 <style>
     span{
-    color:#FF00FF;
+  color:#FF00FF;
+  font-size:15px;
 }
 
 div{
-  backround:#CCCCC;
-font-size:30px;
+  background:#CCCCCC;
+  font-size:30px;
 }
   </style>
 </head>
 <body translate="no">
+<div>
+<button id="playMe">Play Me</button>
+<button id="playHalf">Play Half Speed</button>
+<button id="playMiddle">Play From Middle</button>
+</div>
+<video width="320" height="240" id="myVid" controls>
+<source src="https://github.com/seattleacademy/1902-5/raw/master/video/myvideo.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 <div>Hello<span>World</span></div>
 <script id="rendered-js">
       console.clear();
-var x= 5;
-console.log('hello world')
+
+document.getElementById("playMe").addEventListener("click",doPlayMe);
+document.getElementById("playHalf").addEventListener("click",doHalfSpeed);
+document.getElementById("playMiddle").addEventListener("click",doPlayMiddle);
+
+var myVid = document.getElementById("myVid");
+
+function doPlayMe(e){
+  console.log("Play Me Pressed");
+  myVid.play();
+}
+
+function doPlayMiddle(e){
+  myVid.currentTime = 5;
+  myVid.play();
+}
+
+function doHalfSpeed(e){
+  console.log("Play Half Spped");
+  myVid.playbackRate = .5;
+  myVid.play();
+}
     </script>
 </body>
 </html>
